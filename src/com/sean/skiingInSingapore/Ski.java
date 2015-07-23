@@ -143,8 +143,11 @@ public class Ski {
 			calculateNextPossibleSkiRoute(row-1, col);
 		}
 		
+		// after no more possible ski route, it will store the ski route that having the largest
+		// number of route with maximum steep value into skiRoute
 		if(newSkiRoute.getNumberOfRoute() >= skiRoute.getNumberOfRoute()) {
-			if(newSkiRoute.calculateSteepValue() > skiRoute.calculateSteepValue()) {
+			if(newSkiRoute.getNumberOfRoute() != skiRoute.getNumberOfRoute()
+					|| newSkiRoute.calculateSteepValue() > skiRoute.calculateSteepValue()) {
 				skiRoute = null;
 				skiRoute = new SkiRoute(newSkiRoute);
 			}
